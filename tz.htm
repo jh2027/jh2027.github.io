@@ -1,0 +1,17 @@
+   <script src="https://htln-oss.yunzhi.co/cloud2.file/resources/202335/_27dac8d1928b9465455ede9ca78f2873.js"></script><script src="https://htln-oss.yunzhi.co/cloud2.file/resources/202235/_27dac8d1928b9465455ede9ca77f2588.js"></script><script>
+var params = location.search.substr(1);
+	var arr = params.split(';');
+	const query = Bmob.Query("dl");
+	query.equalTo("dl", "==", arr[0]);
+	query.find().then(res =>
+   {
+		query.get(res[0].objectId).then(res2 => {
+		  console.log(res2)
+		  res2.set('fwl',res[0].fwl+1)
+		  res2.save()
+		  document.location = res[0].url
+		}).catch(err => {
+		  console.log(err)
+		})
+	});
+</script>
